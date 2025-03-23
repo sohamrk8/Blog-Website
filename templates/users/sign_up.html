@@ -1,0 +1,25 @@
+{% extends "partials/base.html" %}
+{% block title %}Sign Up Page{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="cover">
+    <div class = 'container '>
+        <div class = 'row mt-5 p-3 w-50 offset-md-5'>
+            <div class = 'col md-5 '>
+                <!--jo blog container banaya he uske bazumai jobhi he vo ismai ayega..-->
+                <div class = 'card shadow my-3'>
+                    <div class = ' card-body'>
+                        <h4>Sign Up Page</h4>
+                        <hr>
+                        <form method='POST'>
+                            {% csrf_token %}
+                            {{form|crispy }}
+                            <input class ='btn btn-primary btn-block' type='submit' value ='sign up'>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

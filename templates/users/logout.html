@@ -1,0 +1,22 @@
+{% extends "partials/base.html" %}
+{% block title %}Logout Page{% endblock title %}
+{% block content %}
+<div class = 'container'>
+    <div class = 'row mt-5 py-3 w-50 offset-md-3'>
+        <div class = 'col md-6 '>
+            <!--jo blog container banaya he uske bazumai jobhi he vo ismai ayega..-->
+            <div class = 'card shadow my-3'>
+                <div class = ' card-body'>
+                    <h4>Logout Page</h4>
+                    <hr>
+                    <div class ='alert alert-info'>
+                        You have been logged out.
+                    </div>      
+                    <a href="{% url "users-login" %}">Login</a>              
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

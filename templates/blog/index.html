@@ -1,0 +1,55 @@
+{% extends "partials/base.html" %}
+{% block title %}Home Page{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<div class="back"  >
+     <style>
+        .back {
+            background-image: url('/media/snowy-summit-landscape.jpg') !important;
+            background-position: center;
+            background-size:cover;
+            height: fit-content;
+            background-repeat: no-repeat;
+            image-rendering: crisp-edges;
+            
+        }
+    </style>
+
+    <div class = 'container' >
+        <div class = 'row mt-5 pt-3 ' >
+            <div class = 'col md-4 ' >
+                <!--jo blog container banaya he uske bazumai jobhi he vo ismai ayega..-->
+                <div class = 'card shadow my-3 w-75' >
+                    <div class = ' card-body' style="background-color: rgb(248, 236, 215); ">
+                        <form method='POST'>
+                            {% csrf_token %}
+                            {{form|crispy }}
+                            <input class ='btn btn-primary btn-block' type='submit' value ='post'>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class = 'col md-8' style="width: fit-content;"><!--ismian conatiner ke andar text fit hota hai.....-->
+                {% for post in posts %}
+                <div class = 'card shadow my-3' style="background-color: rgb(248, 236, 215);">
+                    <div class = ' card-body' style="width: 100vh;">
+                        <div class = 'row'>
+                            <div class = 'col-md-4' style="max-width:fit-content;">
+                                <img loading="lazy" class="img-thumbnail" width="100px" src='{{post.author.profilemodel.image.url}}' alt='img'>
+                            </div>
+                                <div class = 'col md-2' style="font-family: Arial, Helvetica, sans-serif;">
+                                    <small>{{post.date_created}}</small>
+                                    <hr>
+                                    <a class='h3' href='{% url "blog-post-detail" post.id %}'>{{post.title}}</a>
+                                    <p class ='fst-italic my-3 ' style="color: rgb(0, 0, 0); font-size:large;">{{post.content}}</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

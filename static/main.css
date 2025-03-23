@@ -1,0 +1,23 @@
+.cover{
+    background-image: url('/media/background.jpg') !important;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.soham{
+    background-image: url('/media/profile_background.jpg') !important;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.back {
+    background-image: url('/media/profile_background.jpg') !important;
+    background-size: cover;
+    background-position: center;
+}
+
+
